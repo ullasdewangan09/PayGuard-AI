@@ -39,7 +39,7 @@ If the AI tries to buy an unauthorized item, exceed a budget, or sneak in a recu
 *(Note: Replace these placeholder images by dropping screenshots into the `docs/assets/` folder)*
 
 ### Main Dashboard & Analytics
-<img src="docs/assets/dashboard.png" alt="Dashboard Analytics" width="100%" />
+<img width="1912" height="1076" alt="image" src="https://github.com/user-attachments/assets/4a9e29d7-85a4-4255-b211-6cc4311e1e88" />
 
 ### Attack Lab Simulator
 <img src="docs/assets/attack-lab.png" alt="Attack Lab" width="100%" />

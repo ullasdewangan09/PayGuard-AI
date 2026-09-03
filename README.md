@@ -36,6 +36,10 @@ If the AI tries to buy an unauthorized item, exceed a budget, or sneak in a recu
 
 ## 📸 Sneak Peek
 
+### Landing Page & Login Page 
+<img width="1912" height="1073" alt="image" src="https://github.com/user-attachments/assets/7cd5ca0f-623c-4fb9-ac86-1e241fe63780" /> <img width="1912" height="1077" alt="image" src="https://github.com/user-attachments/assets/78b06a14-4d78-4b4e-8462-8ec27bf5fbfb" />
+
+
 ### Main Dashboard & Analytics
 <img width="1912" height="1076" alt="image" src="https://github.com/user-attachments/assets/4a9e29d7-85a4-4255-b211-6cc4311e1e88" />
 

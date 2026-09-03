@@ -1,0 +1,234 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-primary: #121110;
+    --bg-secondary: #1A1918;
+    --bg-tertiary: #232220;
+    --bg-sidebar: #0A0A0A;
+    
+    --text-primary: #F2EFE9;
+    --text-secondary: #A3A09A;
+    --text-muted: #6B6965;
+    
+    --accent-red: #FF2A4D;
+    --accent-green: #00E599;
+    
+    --border-subtle: rgba(242, 239, 233, 0.05);
+    --border-medium: rgba(242, 239, 233, 0.10);
+    --border-strong: rgba(242, 239, 233, 0.18);
+
+    --nav-item-active-bg: rgba(255, 42, 77, 0.10);
+    --nav-item-hover-bg: rgba(242, 239, 233, 0.05);
+
+    /* Font configurations */
+    --font-editorial: 'Outfit', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+    --font-sans: 'Manrope', sans-serif;
+
+    /* ── shadcn/ui CSS variable tokens ───────────────────────────────── */
+    --background: 20 14.3% 4.1%;
+    --foreground: 60 9.1% 97.8%;
+    --card: 20 14.3% 4.1%;
+    --card-foreground: 60 9.1% 97.8%;
+    --popover: 20 14.3% 4.1%;
+    --popover-foreground: 60 9.1% 97.8%;
+    --primary: 60 9.1% 97.8%;
+    --primary-foreground: 24 9.8% 10%;
+    --secondary: 12 6.5% 15.1%;
+    --secondary-foreground: 60 9.1% 97.8%;
+    --muted: 12 6.5% 15.1%;
+    --muted-foreground: 24 5.4% 63.9%;
+    --accent: 12 6.5% 15.1%;
+    --accent-foreground: 60 9.1% 97.8%;
+    --destructive: 0 72.2% 50.6%;
+    --destructive-foreground: 60 9.1% 97.8%;
+    --border: 12 6.5% 15.1%;
+    --input: 12 6.5% 15.1%;
+    --ring: 35.5 91.7% 32.9%;
+    --radius: 0.5rem;
+  }
+
+  /* ── Light Mode overrides ────────────────────────────────────────────── */
+  html.light {
+    --bg-primary: #F7F6F3;
+    --bg-secondary: #EDECEA;
+    --bg-tertiary: #E3E1DE;
+    --bg-sidebar: #FAFAF9;
+    
+    --text-primary: #1A1816;
+    --text-secondary: #5C5A56;
+    --text-muted: #9A9894;
+    
+    --border-subtle: rgba(30, 26, 24, 0.06);
+    --border-medium: rgba(30, 26, 24, 0.12);
+    --border-strong: rgba(30, 26, 24, 0.20);
+
+    --nav-item-active-bg: rgba(255, 42, 77, 0.08);
+    --nav-item-hover-bg: rgba(30, 26, 24, 0.05);
+
+    --background: 40 30% 96%;
+    --foreground: 25 14% 10%;
+    --card: 40 30% 96%;
+    --card-foreground: 25 14% 10%;
+    --popover: 40 30% 96%;
+    --popover-foreground: 25 14% 10%;
+    --primary: 25 14% 10%;
+    --primary-foreground: 40 30% 96%;
+    --secondary: 35 10% 90%;
+    --secondary-foreground: 25 14% 10%;
+    --muted: 35 10% 90%;
+    --muted-foreground: 25 10% 45%;
+    --border: 35 10% 88%;
+    --input: 35 10% 88%;
+  }
+
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overscroll-behavior: none;
+    transition: background-color 0.25s ease, color 0.25s ease;
+  }
+
+  body {
+    background-color: var(--bg-primary);
+    background-image: radial-gradient(circle at 15% 50%, rgba(255, 42, 77, 0.05), transparent 45%), 
+                      radial-gradient(circle at 85% 30%, rgba(0, 229, 153, 0.04), transparent 45%),
+                      linear-gradient(to bottom right, var(--bg-primary), #050505);
+    background-attachment: fixed;
+    color: var(--text-primary);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+  
+  html.light body {
+    background-color: var(--bg-primary);
+    background-image: radial-gradient(circle at 15% 50%, rgba(255, 42, 77, 0.04), transparent 45%), 
+                      radial-gradient(circle at 85% 30%, rgba(0, 229, 153, 0.03), transparent 45%),
+                      linear-gradient(to bottom right, #ffffff, var(--bg-primary));
+    background-attachment: fixed;
+  }
+  
+  ::selection {
+    background-color: rgba(255, 42, 77, 0.2);
+    color: #FFFFFF;
+  }
+}
+
+/* ─── Typography overrides ─────────────────────────────────────────────────── */
+.font-editorial {
+  font-family: 'Outfit', sans-serif;
+  letter-spacing: -0.02em;
+}
+
+.font-mono {
+  font-family: 'JetBrains Mono', monospace;
+  letter-spacing: -0.01em;
+}
+
+.font-sans {
+  font-family: 'Manrope', sans-serif;
+}
+
+
+/* ─── Scrollbar ─────────────────────────────────── */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--bg-primary); }
+::-webkit-scrollbar-thumb { background: var(--border-strong); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
+
+/* ─── Transition all theme-variable-driven elements ──── */
+*, *::before, *::after {
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.15s ease;
+}
+/* But NOT transitions on transforms/opacity (would break animations) */
+[class*="animate-"], [class*="transition-"] {
+  transition-property: transform, opacity;
+}
+
+/* ─── Video Background Classes ───────────────────── */
+.video-background {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  object-fit: cover;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.6;
+  filter: saturate(1.2) contrast(1.1);
+}
+
+.video-overlay {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle at center, transparent 0%, rgba(18, 17, 16, 0.7) 100%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* ─── Grid Systems ──────────────────────────────── */
+.bg-grid {
+  background-image: 
+    linear-gradient(var(--border-subtle) 1px, transparent 1px),
+    linear-gradient(90deg, var(--border-subtle) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+
+.bg-dot {
+  background-image: radial-gradient(var(--border-medium) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+/* ─── Glass panel ─────────────────── */
+.glass-panel {
+  background: rgba(26, 25, 24, 0.6);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-medium);
+}
+
+html.light .glass-panel {
+  background: rgba(255, 255, 255, 0.7);
+}
+
+/* ─── Sidebar CSS-variable-driven colors ─────────── */
+.sidebar-nav {
+  background: var(--bg-sidebar);
+  border-color: var(--border-medium);
+}
+
+.nav-section-header {
+  color: var(--text-muted);
+}
+
+.nav-item {
+  color: var(--text-secondary);
+}
+
+.nav-item:hover {
+  background: var(--nav-item-hover-bg);
+  color: var(--text-primary);
+}
+
+.nav-item.active {
+  background: var(--nav-item-active-bg);
+  color: #FF2A4D;
+}
+
+/* ─── Sidebar section collapse animation ─────────── */
+.sidebar-group-content {
+  overflow: hidden;
+  transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.25s ease;
+}
+
+.sidebar-group-content.collapsed {
+  max-height: 0 !important;
+  opacity: 0;
+}

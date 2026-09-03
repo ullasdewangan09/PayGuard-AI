@@ -1,0 +1,1299 @@
+{
+  "metrics": {
+    "total": 106,
+    "passed": 106,
+    "failed": 0,
+    "false_approvals": 0,
+    "false_blocks": 0
+  },
+  "results": [
+    {
+      "id": "EV-001",
+      "description": "Amount well below",
+      "expected": "APPROVE",
+      "actual": "APPROVE",
+      "category": "MAX_AMOUNT",
+      "passed": true,
+      "violations": []
+    },
+    {
+      "id": "EV-002",
+      "description": "Amount just below",
+      "expected": "APPROVE",
+      "actual": "APPROVE",
+      "category": "MAX_AMOUNT",
+      "passed": true,
+      "violations": []
+    },
+    {
+      "id": "EV-003",
+      "description": "Amount exactly at",
+      "expected": "APPROVE",
+      "actual": "APPROVE",
+      "category": "MAX_AMOUNT",
+      "passed": true,
+      "violations": []
+    },
+    {
+      "id": "EV-004",
+      "description": "Amount just above",
+      "expected": "BLOCK",
+      "actual": "BLOCK",
+      "category": "MAX_AMOUNT",
+      "passed": true,
+      "violations": [
+        {
+          "code": "MAX_AMOUNT_EXCEEDED",
+          "constraint": "max_total_amount",
+          "expected": "8000.0",
+          "actual": "8001.0",
+          "severity": "HARD"
+        }
+      ]
+    },
+    {
+      "id": "EV-005",
+      "description": "Amount well above",
+      "expected": "BLOCK",
+      "actual": "BLOCK",
+      "category": "MAX_AMOUNT",
+      "passed": true,
+      "violations": [
+        {
+          "code": "MAX_AMOUNT_EXCEEDED",
+          "constraint": "max_total_amount",
+          "expected": "8000.0",
+          "actual": "100000.0",
+          "severity": "HARD"
+        }
+      ]
+    },
+    {
+      "id": "EV-006",
+      "description": "Currency Match INR",
+      "expected": "APPROVE",
+      "actual": "APPROVE",
+      "category": "CURRENCY_MATCH",
+      "passed": true,
+      "violations": []
+    },
+    {
+      "id": "EV-007",
+      "description": "Currency Mismatch USD/INR",
+      "expected": "BLOCK",
+      "actual": "BLOCK",
+      "category": "CURRENCY_MATCH",
+      "passed": true,
+      "violations": [
+        {
+          "code": "CURRENCY_MISMATCH",
+          "constraint": "currency",
+          "expected": "USD",
+          "actual": "INR",
+          "severity": "HARD"
+        }
+      ]
+    },
+    {
+      "id": "EV-008",
+      "description": "Currency Mismatch EUR/INR",
+      "expected": "BLOCK",
+      "actual": "BLOCK",
+      "category": "CURRENCY_MATCH",
+      "passed": true,
+      "violations": [
+        {
+          "code": "CURRENCY_MISMATCH",
+          "constraint": "currency",
+          "expected": "EUR",
+          "actual": "INR",
+          "severity": "HARD"
+        }
+      ]
+    },
+    {
+      "id": "EV-009",
+      "description": "Currency Match USD",
+      "expected": "APPROVE",
+      "actual": "APPROVE",
+      "category": "CURRENCY_MATCH",
+      "passed": true,
+      "violations": []
+    },
+    {
+      "id": "EV-010",
+      "description": "Category allowed explicitly",
+      "expected": "APPROVE",
+      "actual": "APPROVE",
+      "category": "BANNED_CATEGORY",
+      "passed": true,
+      "violations": []
+    },
+    {
+      "id": "EV-011",
+      "description": "Category not in allowed list",
+      "expected": "BLOCK",
+      "actual": "BLOCK",
+      "category": "BANNED_CATEGORY",
+      "passed": true,
+      "violations": [
+        {
+          "code": "BANNED_CATEGORY",
+          "constraint": "allowed_categories",
+          "expected": "In ['food']",
+          "actual": "electronics",
+          "severity": "HARD"
+        }
+      ]
+    },
+    {
+      "id": "EV-012",
+      "description": "Category explicitly banned",
+      "expected": "BLOCK",
+      "actual": "BLOCK",
+      "category": "BANNED_CATEGORY",
+      "passed": true,
+      "violations": [
+        {
+          "code": "BANNED_CATEGORY",
+          "constraint": "banned_categories",
+          "expected": "Not in ['games']",
+          "actual": "games",
+          "severity": "HARD"
+        }
+      ]
+    },
+    {
+      "id": "EV-013",
+      "description": "Category casing check (banned)",
+      "expected": "BLOCK",
+      "actual": "BLOCK",
+      "category": "BANNED_CATEGORY",
+      "passed": true,
+      "violations": [
+        {
+          "code": "BANNED_CATEGORY",
+          "constraint": "banned_categories",
+          "expected": "Not in ['GAMES']",
+          "actual": "games",
+          "severity": "HARD"
+        }
+      ]
+    },
+    {
+      "id": "EV-014",
+      "description": "Category casing check (allowed)",
+      "expected": "APPROVE",
+      "actual": "APPROVE",
+      "category": "BANNED_CATEGORY",
+      "passed": true,
+      "violations": []
+    },
+    {
+      "id": "EV-015",
+      "description": "Mixed valid and banned",
+      "expected": "BLOCK",
+      "actual": "BLOCK",
+      "category": "BANNED_CATEGORY",
+      "passed": true,
+      "violations": [
+        {
+          "code": "BANNED_CATEGORY",
+          "constraint": "banned_categories",
+          "expected": "Not in ['games']",
+          "actual": "games",
+          "severity": "HARD"
+        }
+      ]
+    },
+    {
+      "id": "EV-016",
+      "description": "Recurring allowed, transaction is one-time",
+      "expected": "APPROVE",
+      "actual": "APPROVE",
+      "category": "RECURRING_PAYMENT",
+      "passed": true,
+      "violations": []
+    },
+    {
+      "id": "EV-017",
+      "description": "Recurring allowed, transaction is recurring",
+      "expected": "APPROVE",
+      "actual": "APPROVE",
+      "category": "RECURRING_PAYMENT",
+      "passed": true,
+      "violations": []
+    },
+    {
+      "id": "EV-018",
+      "description": "Recurring forbidden, transaction is one-time",
+      "expected": "APPROVE",
+      "actual": "APPROVE",
+      "category": "RECURRING_PAYMENT",
+      "passed": true,
+      "violations": []
+    },
+    {
+      "id": "EV-019",
+      "description": "Recurring forbidden, transaction is recurring",
+      "expected": "BLOCK",
+      "actual": "BLOCK",
+      "category": "RECURRING_PAYMENT",
+      "passed": true,
+      "violations": [
+        {
+          "code": "RECURRING_PAYMENT_NOT_ALLOWED",
+          "constraint": "recurring_payment_allowed",
+          "expected": "False",
+          "actual": "True",
+          "severity": "HARD"
+        }
+      ]
+    },
+    {
+      "id": "EV-020",
+      "description": "Quantity below max",
+      "expected": "APPROVE",
+      "actual": "APPROVE",
+      "category": "MAX_QUANTITY",
+      "passed": true,
+      "violations": []
+    },
+    {
+      "id": "EV-021",
+      "description": "Quantity exactly max",
+      "expected": "APPROVE",
+      "actual": "APPROVE",
+      "category": "MAX_QUANTITY",
+      "passed": true,
+      "violations": []
+    },
+    {
+      "id": "EV-022",
+      "description": "Quantity above max",
+      "expected": "BLOCK",
+      "actual": "BLOCK",
+      "category": "MAX_QUANTITY",
+      "passed": true,
+      "violations": [
+        {
+          "code": "MAX_QUANTITY_EXCEEDED",
+          "constraint": "max_quantity",
+          "expected": "2",
+          "actual": "3",
+          "severity": "HARD"
+        }
+      ]
+    },
+    {
+      "id": "EV-023",
+      "description": "Quantity aggregate above max",
+      "expected": "BLOCK",
+      "actual": "BLOCK",
+      "category": "MAX_QUANTITY",
+      "passed": true,
+      "violations": [
+        {
+          "code": "MAX_QUANTITY_EXCEEDED",
+          "constraint": "max_quantity",
+          "expected": "2",
+          "actual": "3",
+          "severity": "HARD"
+        }
+      ]
+    },
+    {
+      "id": "EV-024",
+      "description": "No merchant restrictions",
+      "expected": "APPROVE",
+      "actual": "APPROVE",
+      "category": "MERCHANT_BLOCKED",
+      "passed": true,
+      "violations": []
+    },
+    {
+      "id": "EV-025",
+      "description": "Merchant blocked explicitly",
+      "expected": "BLOCK",
+      "actual": "BLOCK",
+      "category": "MERCHANT_BLOCKED",
+      "passed": true,
+      "violations": [
+        {
+          "code": "MERCHANT_BLOCKED",
+          "constraint": "merchant_restrictions.blocklist",
+          "expected": "Not in blocklist",
+          "actual": "m_1",
+          "severity": "HARD"
+        }
+      ]
+    },
+    {
+      "id": "EV-026",
+      "description": "Merchant blocklist miss",
+      "expected": "APPROVE",
+      "actual": "APPROVE",
+      "category": "MERCHANT_BLOCKED",
+      "passed": true,
+      "violations": []
+    },
+    {
+      "id": "EV-027",
+      "description": "Merchant allowlist hit",
+      "expected": "APPROVE",
+      "actual": "APPROVE",
+      "category": "MERCHANT_BLOCKED",
+      "passed": true,
+      "violations": []
+    },
+    {
+      "id": "EV-028",
+      "description": "Merchant allowlist miss",
+      "expected": "ASK",
+      "actual": "ASK",
+      "category": "MERCHANT_BLOCKED",
+      "passed": true,
+      "violations": [
+        {
+          "code": "MERCHANT_BLOCKED",
+          "constraint": "merchant_restrictions.allowlist",
+          "expected": "In allowlist",
+          "actual": "m_2",
+          "severity": "SOFT"
+        }
+      ]
+    },
+    {
+      "id": "EV-029",
+      "description": "Soft + Soft (Allowlist miss)",
+      "expected": "ASK",
+      "actual": "ASK",
+      "category": "COMBINATORIAL",
+      "passed": true,
+      "violations": [
+        {
+          "code": "MERCHANT_BLOCKED",
+          "constraint": "merchant_restrictions.allowlist",
+          "expected": "In allowlist",
+          "actual": "m_2",
+          "severity": "SOFT"
+        }
+      ]
+    },
+    {
+      "id": "EV-030",
+      "description": "Soft + Hard (Allowlist miss + Over budget)",
+      "expected": "BLOCK",
+      "actual": "BLOCK",
+      "category": "COMBINATORIAL",
+      "passed": true,
+      "violations": [
+        {
+          "code": "MAX_AMOUNT_EXCEEDED",
+          "constraint": "max_total_amount",
+          "expected": "8000.0",
+          "actual": "9000.0",
+          "severity": "HARD"
+        },
+        {
+          "code": "MERCHANT_BLOCKED",
+          "constraint": "merchant_restrictions.allowlist",
+          "expected": "In allowlist",
+          "actual": "m_2",
+          "severity": "SOFT"
+        }
+      ]
+    },
+    {
+      "id": "EV-031",
+      "description": "Hard + Hard (Over budget + currency mismatch)",
+      "expected": "BLOCK",
+      "actual": "BLOCK",
+      "category": "COMBINATORIAL",
+      "passed": true,
+      "violations": [
+        {
+          "code": "MAX_AMOUNT_EXCEEDED",
+          "constraint": "max_total_amount",
+          "expected": "8000.0",
+          "actual": "9000.0",
+          "severity": "HARD"
+        },
+        {
+          "code": "CURRENCY_MISMATCH",
+          "constraint": "currency",
+          "expected": "INR",
+          "actual": "USD",
+          "severity": "HARD"
+        }
+      ]
+    },
+    {
+      "id": "EV-032",
+      "description": "Combinatorial Approve 1",
+      "expected": "APPROVE",
+      "actual": "APPROVE",
+      "category": "COMBINATORIAL",
+      "passed": true,
+      "violations": []
+    },
+    {
+      "id": "EV-033",
+      "description": "Combinatorial Approve 2",
+      "expected": "APPROVE",
+      "actual": "APPROVE",
+      "category": "COMBINATORIAL",
+      "passed": true,
+      "violations": []
+    },
+    {
+      "id": "EV-034",
+      "description": "Combinatorial Approve 3",
+      "expected": "APPROVE",
+      "actual": "APPROVE",
+      "category": "COMBINATORIAL",
+      "passed": true,
+      "violations": []
+    },
+    {
+      "id": "EV-035",
+      "description": "Combinatorial Approve 4",
+      "expected": "APPROVE",
+      "actual": "APPROVE",
+      "category": "COMBINATORIAL",
+      "passed": true,
+      "violations": []
+    },
+    {
+      "id": "EV-036",
+      "description": "Combinatorial Approve 5",
+      "expected": "APPROVE",
+      "actual": "APPROVE",
+      "category": "COMBINATORIAL",
+      "passed": true,
+      "violations": []
+    },
+    {
+      "id": "EV-037",
+      "description": "Combinatorial Approve 6",
+      "expected": "APPROVE",
+      "actual": "APPROVE",
+      "category": "COMBINATORIAL",
+      "passed": true,
+      "violations": []
+    },
+    {
+      "id": "EV-038",
+      "description": "Combinatorial Approve 7",
+      "expected": "APPROVE",
+      "actual": "APPROVE",
+      "category": "COMBINATORIAL",
+      "passed": true,
+      "violations": []
+    },
+    {
+      "id": "EV-039",
+      "description": "Combinatorial Approve 8",
+      "expected": "APPROVE",
+      "actual": "APPROVE",
+      "category": "COMBINATORIAL",
+      "passed": true,
+      "violations": []
+    },
+    {
+      "id": "EV-040",
+      "description": "Combinatorial Approve 9",
+      "expected": "APPROVE",
+      "actual": "APPROVE",
+      "category": "COMBINATORIAL",
+      "passed": true,
+      "violations": []
+    },
+    {
+      "id": "EV-041",
+      "description": "Combinatorial Approve 10",
+      "expected": "APPROVE",
+      "actual": "APPROVE",
+      "category": "COMBINATORIAL",
+      "passed": true,
+      "violations": []
+    },
+    {
+      "id": "EV-042",
+      "description": "Combinatorial Approve 11",
+      "expected": "APPROVE",
+      "actual": "APPROVE",
+      "category": "COMBINATORIAL",
+      "passed": true,
+      "violations": []
+    },
+    {
+      "id": "EV-043",
+      "description": "Combinatorial Approve 12",
+      "expected": "APPROVE",
+      "actual": "APPROVE",
+      "category": "COMBINATORIAL",
+      "passed": true,
+      "violations": []
+    },
+    {
+      "id": "EV-044",
+      "description": "Combinatorial Approve 13",
+      "expected": "APPROVE",
+      "actual": "APPROVE",
+      "category": "COMBINATORIAL",
+      "passed": true,
+      "violations": []
+    },
+    {
+      "id": "EV-045",
+      "description": "Combinatorial Approve 14",
+      "expected": "APPROVE",
+      "actual": "APPROVE",
+      "category": "COMBINATORIAL",
+      "passed": true,
+      "violations": []
+    },
+    {
+      "id": "EV-046",
+      "description": "Combinatorial Approve 15",
+      "expected": "APPROVE",
+      "actual": "APPROVE",
+      "category": "COMBINATORIAL",
+      "passed": true,
+      "violations": []
+    },
+    {
+      "id": "EV-047",
+      "description": "Combinatorial Approve 16",
+      "expected": "APPROVE",
+      "actual": "APPROVE",
+      "category": "COMBINATORIAL",
+      "passed": true,
+      "violations": []
+    },
+    {
+      "id": "EV-048",
+      "description": "Combinatorial Approve 17",
+      "expected": "APPROVE",
+      "actual": "APPROVE",
+      "category": "COMBINATORIAL",
+      "passed": true,
+      "violations": []
+    },
+    {
+      "id": "EV-049",
+      "description": "Combinatorial Approve 18",
+      "expected": "APPROVE",
+      "actual": "APPROVE",
+      "category": "COMBINATORIAL",
+      "passed": true,
+      "violations": []
+    },
+    {
+      "id": "EV-050",
+      "description": "Combinatorial Approve 19",
+      "expected": "APPROVE",
+      "actual": "APPROVE",
+      "category": "COMBINATORIAL",
+      "passed": true,
+      "violations": []
+    },
+    {
+      "id": "EV-051",
+      "description": "Combinatorial Approve 20",
+      "expected": "APPROVE",
+      "actual": "APPROVE",
+      "category": "COMBINATORIAL",
+      "passed": true,
+      "violations": []
+    },
+    {
+      "id": "EV-052",
+      "description": "Combinatorial Approve 21",
+      "expected": "APPROVE",
+      "actual": "APPROVE",
+      "category": "COMBINATORIAL",
+      "passed": true,
+      "violations": []
+    },
+    {
+      "id": "EV-053",
+      "description": "Combinatorial Approve 22",
+      "expected": "APPROVE",
+      "actual": "APPROVE",
+      "category": "COMBINATORIAL",
+      "passed": true,
+      "violations": []
+    },
+    {
+      "id": "EV-054",
+      "description": "Combinatorial Approve 23",
+      "expected": "APPROVE",
+      "actual": "APPROVE",
+      "category": "COMBINATORIAL",
+      "passed": true,
+      "violations": []
+    },
+    {
+      "id": "EV-055",
+      "description": "Combinatorial Approve 24",
+      "expected": "APPROVE",
+      "actual": "APPROVE",
+      "category": "COMBINATORIAL",
+      "passed": true,
+      "violations": []
+    },
+    {
+      "id": "EV-056",
+      "description": "Combinatorial Approve 25",
+      "expected": "APPROVE",
+      "actual": "APPROVE",
+      "category": "COMBINATORIAL",
+      "passed": true,
+      "violations": []
+    },
+    {
+      "id": "EV-057",
+      "description": "Combinatorial Approve 26",
+      "expected": "APPROVE",
+      "actual": "APPROVE",
+      "category": "COMBINATORIAL",
+      "passed": true,
+      "violations": []
+    },
+    {
+      "id": "EV-058",
+      "description": "Combinatorial Approve 27",
+      "expected": "APPROVE",
+      "actual": "APPROVE",
+      "category": "COMBINATORIAL",
+      "passed": true,
+      "violations": []
+    },
+    {
+      "id": "EV-059",
+      "description": "Combinatorial Approve 28",
+      "expected": "APPROVE",
+      "actual": "APPROVE",
+      "category": "COMBINATORIAL",
+      "passed": true,
+      "violations": []
+    },
+    {
+      "id": "EV-060",
+      "description": "Combinatorial Approve 29",
+      "expected": "APPROVE",
+      "actual": "APPROVE",
+      "category": "COMBINATORIAL",
+      "passed": true,
+      "violations": []
+    },
+    {
+      "id": "EV-061",
+      "description": "Combinatorial Approve 30",
+      "expected": "APPROVE",
+      "actual": "APPROVE",
+      "category": "COMBINATORIAL",
+      "passed": true,
+      "violations": []
+    },
+    {
+      "id": "EV-062",
+      "description": "Combinatorial Approve 31",
+      "expected": "APPROVE",
+      "actual": "APPROVE",
+      "category": "COMBINATORIAL",
+      "passed": true,
+      "violations": []
+    },
+    {
+      "id": "EV-063",
+      "description": "Combinatorial Approve 32",
+      "expected": "APPROVE",
+      "actual": "APPROVE",
+      "category": "COMBINATORIAL",
+      "passed": true,
+      "violations": []
+    },
+    {
+      "id": "EV-064",
+      "description": "Combinatorial Approve 33",
+      "expected": "APPROVE",
+      "actual": "APPROVE",
+      "category": "COMBINATORIAL",
+      "passed": true,
+      "violations": []
+    },
+    {
+      "id": "EV-065",
+      "description": "Combinatorial Approve 34",
+      "expected": "APPROVE",
+      "actual": "APPROVE",
+      "category": "COMBINATORIAL",
+      "passed": true,
+      "violations": []
+    },
+    {
+      "id": "EV-066",
+      "description": "Combinatorial Approve 35",
+      "expected": "APPROVE",
+      "actual": "APPROVE",
+      "category": "COMBINATORIAL",
+      "passed": true,
+      "violations": []
+    },
+    {
+      "id": "EV-067",
+      "description": "Combinatorial Approve 36",
+      "expected": "APPROVE",
+      "actual": "APPROVE",
+      "category": "COMBINATORIAL",
+      "passed": true,
+      "violations": []
+    },
+    {
+      "id": "EV-068",
+      "description": "Combinatorial Approve 37",
+      "expected": "APPROVE",
+      "actual": "APPROVE",
+      "category": "COMBINATORIAL",
+      "passed": true,
+      "violations": []
+    },
+    {
+      "id": "EV-069",
+      "description": "Combinatorial Approve 38",
+      "expected": "APPROVE",
+      "actual": "APPROVE",
+      "category": "COMBINATORIAL",
+      "passed": true,
+      "violations": []
+    },
+    {
+      "id": "EV-070",
+      "description": "Combinatorial Approve 39",
+      "expected": "APPROVE",
+      "actual": "APPROVE",
+      "category": "COMBINATORIAL",
+      "passed": true,
+      "violations": []
+    },
+    {
+      "id": "EV-071",
+      "description": "Combinatorial Approve 40",
+      "expected": "APPROVE",
+      "actual": "APPROVE",
+      "category": "COMBINATORIAL",
+      "passed": true,
+      "violations": []
+    },
+    {
+      "id": "EV-072",
+      "description": "Combinatorial Approve 41",
+      "expected": "APPROVE",
+      "actual": "APPROVE",
+      "category": "COMBINATORIAL",
+      "passed": true,
+      "violations": []
+    },
+    {
+      "id": "EV-073",
+      "description": "Combinatorial Approve 42",
+      "expected": "APPROVE",
+      "actual": "APPROVE",
+      "category": "COMBINATORIAL",
+      "passed": true,
+      "violations": []
+    },
+    {
+      "id": "EV-074",
+      "description": "Combinatorial Approve 43",
+      "expected": "APPROVE",
+      "actual": "APPROVE",
+      "category": "COMBINATORIAL",
+      "passed": true,
+      "violations": []
+    },
+    {
+      "id": "EV-075",
+      "description": "Combinatorial Approve 44",
+      "expected": "APPROVE",
+      "actual": "APPROVE",
+      "category": "COMBINATORIAL",
+      "passed": true,
+      "violations": []
+    },
+    {
+      "id": "EV-076",
+      "description": "Combinatorial Approve 45",
+      "expected": "APPROVE",
+      "actual": "APPROVE",
+      "category": "COMBINATORIAL",
+      "passed": true,
+      "violations": []
+    },
+    {
+      "id": "EV-077",
+      "description": "Combinatorial Approve 46",
+      "expected": "APPROVE",
+      "actual": "APPROVE",
+      "category": "COMBINATORIAL",
+      "passed": true,
+      "violations": []
+    },
+    {
+      "id": "EV-078",
+      "description": "Combinatorial Approve 47",
+      "expected": "APPROVE",
+      "actual": "APPROVE",
+      "category": "COMBINATORIAL",
+      "passed": true,
+      "violations": []
+    },
+    {
+      "id": "EV-079",
+      "description": "Combinatorial Approve 48",
+      "expected": "APPROVE",
+      "actual": "APPROVE",
+      "category": "COMBINATORIAL",
+      "passed": true,
+      "violations": []
+    },
+    {
+      "id": "EV-080",
+      "description": "Combinatorial Approve 49",
+      "expected": "APPROVE",
+      "actual": "APPROVE",
+      "category": "COMBINATORIAL",
+      "passed": true,
+      "violations": []
+    },
+    {
+      "id": "EV-081",
+      "description": "Combinatorial Approve 50",
+      "expected": "APPROVE",
+      "actual": "APPROVE",
+      "category": "COMBINATORIAL",
+      "passed": true,
+      "violations": []
+    },
+    {
+      "id": "EV-082",
+      "description": "Combinatorial Block 1",
+      "expected": "BLOCK",
+      "actual": "BLOCK",
+      "category": "COMBINATORIAL",
+      "passed": true,
+      "violations": [
+        {
+          "code": "MAX_AMOUNT_EXCEEDED",
+          "constraint": "max_total_amount",
+          "expected": "8000.0",
+          "actual": "10100.0",
+          "severity": "HARD"
+        }
+      ]
+    },
+    {
+      "id": "EV-083",
+      "description": "Combinatorial Block 2",
+      "expected": "BLOCK",
+      "actual": "BLOCK",
+      "category": "COMBINATORIAL",
+      "passed": true,
+      "violations": [
+        {
+          "code": "MAX_AMOUNT_EXCEEDED",
+          "constraint": "max_total_amount",
+          "expected": "8000.0",
+          "actual": "10200.0",
+          "severity": "HARD"
+        }
+      ]
+    },
+    {
+      "id": "EV-084",
+      "description": "Combinatorial Block 3",
+      "expected": "BLOCK",
+      "actual": "BLOCK",
+      "category": "COMBINATORIAL",
+      "passed": true,
+      "violations": [
+        {
+          "code": "MAX_AMOUNT_EXCEEDED",
+          "constraint": "max_total_amount",
+          "expected": "8000.0",
+          "actual": "10300.0",
+          "severity": "HARD"
+        }
+      ]
+    },
+    {
+      "id": "EV-085",
+      "description": "Combinatorial Block 4",
+      "expected": "BLOCK",
+      "actual": "BLOCK",
+      "category": "COMBINATORIAL",
+      "passed": true,
+      "violations": [
+        {
+          "code": "MAX_AMOUNT_EXCEEDED",
+          "constraint": "max_total_amount",
+          "expected": "8000.0",
+          "actual": "10400.0",
+          "severity": "HARD"
+        }
+      ]
+    },
+    {
+      "id": "EV-086",
+      "description": "Combinatorial Block 5",
+      "expected": "BLOCK",
+      "actual": "BLOCK",
+      "category": "COMBINATORIAL",
+      "passed": true,
+      "violations": [
+        {
+          "code": "MAX_AMOUNT_EXCEEDED",
+          "constraint": "max_total_amount",
+          "expected": "8000.0",
+          "actual": "10500.0",
+          "severity": "HARD"
+        }
+      ]
+    },
+    {
+      "id": "EV-087",
+      "description": "Combinatorial Block 6",
+      "expected": "BLOCK",
+      "actual": "BLOCK",
+      "category": "COMBINATORIAL",
+      "passed": true,
+      "violations": [
+        {
+          "code": "MAX_AMOUNT_EXCEEDED",
+          "constraint": "max_total_amount",
+          "expected": "8000.0",
+          "actual": "10600.0",
+          "severity": "HARD"
+        }
+      ]
+    },
+    {
+      "id": "EV-088",
+      "description": "Combinatorial Block 7",
+      "expected": "BLOCK",
+      "actual": "BLOCK",
+      "category": "COMBINATORIAL",
+      "passed": true,
+      "violations": [
+        {
+          "code": "MAX_AMOUNT_EXCEEDED",
+          "constraint": "max_total_amount",
+          "expected": "8000.0",
+          "actual": "10700.0",
+          "severity": "HARD"
+        }
+      ]
+    },
+    {
+      "id": "EV-089",
+      "description": "Combinatorial Block 8",
+      "expected": "BLOCK",
+      "actual": "BLOCK",
+      "category": "COMBINATORIAL",
+      "passed": true,
+      "violations": [
+        {
+          "code": "MAX_AMOUNT_EXCEEDED",
+          "constraint": "max_total_amount",
+          "expected": "8000.0",
+          "actual": "10800.0",
+          "severity": "HARD"
+        }
+      ]
+    },
+    {
+      "id": "EV-090",
+      "description": "Combinatorial Block 9",
+      "expected": "BLOCK",
+      "actual": "BLOCK",
+      "category": "COMBINATORIAL",
+      "passed": true,
+      "violations": [
+        {
+          "code": "MAX_AMOUNT_EXCEEDED",
+          "constraint": "max_total_amount",
+          "expected": "8000.0",
+          "actual": "10900.0",
+          "severity": "HARD"
+        }
+      ]
+    },
+    {
+      "id": "EV-091",
+      "description": "Combinatorial Block 10",
+      "expected": "BLOCK",
+      "actual": "BLOCK",
+      "category": "COMBINATORIAL",
+      "passed": true,
+      "violations": [
+        {
+          "code": "MAX_AMOUNT_EXCEEDED",
+          "constraint": "max_total_amount",
+          "expected": "8000.0",
+          "actual": "11000.0",
+          "severity": "HARD"
+        }
+      ]
+    },
+    {
+      "id": "EV-092",
+      "description": "Combinatorial Block 11",
+      "expected": "BLOCK",
+      "actual": "BLOCK",
+      "category": "COMBINATORIAL",
+      "passed": true,
+      "violations": [
+        {
+          "code": "MAX_AMOUNT_EXCEEDED",
+          "constraint": "max_total_amount",
+          "expected": "8000.0",
+          "actual": "11100.0",
+          "severity": "HARD"
+        }
+      ]
+    },
+    {
+      "id": "EV-093",
+      "description": "Combinatorial Block 12",
+      "expected": "BLOCK",
+      "actual": "BLOCK",
+      "category": "COMBINATORIAL",
+      "passed": true,
+      "violations": [
+        {
+          "code": "MAX_AMOUNT_EXCEEDED",
+          "constraint": "max_total_amount",
+          "expected": "8000.0",
+          "actual": "11200.0",
+          "severity": "HARD"
+        }
+      ]
+    },
+    {
+      "id": "EV-094",
+      "description": "Combinatorial Block 13",
+      "expected": "BLOCK",
+      "actual": "BLOCK",
+      "category": "COMBINATORIAL",
+      "passed": true,
+      "violations": [
+        {
+          "code": "MAX_AMOUNT_EXCEEDED",
+          "constraint": "max_total_amount",
+          "expected": "8000.0",
+          "actual": "11300.0",
+          "severity": "HARD"
+        }
+      ]
+    },
+    {
+      "id": "EV-095",
+      "description": "Combinatorial Block 14",
+      "expected": "BLOCK",
+      "actual": "BLOCK",
+      "category": "COMBINATORIAL",
+      "passed": true,
+      "violations": [
+        {
+          "code": "MAX_AMOUNT_EXCEEDED",
+          "constraint": "max_total_amount",
+          "expected": "8000.0",
+          "actual": "11400.0",
+          "severity": "HARD"
+        }
+      ]
+    },
+    {
+      "id": "EV-096",
+      "description": "Combinatorial Ask 1",
+      "expected": "ASK",
+      "actual": "ASK",
+      "category": "COMBINATORIAL",
+      "passed": true,
+      "violations": [
+        {
+          "code": "MERCHANT_BLOCKED",
+          "constraint": "merchant_restrictions.allowlist",
+          "expected": "In allowlist",
+          "actual": "y_1",
+          "severity": "SOFT"
+        }
+      ]
+    },
+    {
+      "id": "EV-097",
+      "description": "Combinatorial Ask 2",
+      "expected": "ASK",
+      "actual": "ASK",
+      "category": "COMBINATORIAL",
+      "passed": true,
+      "violations": [
+        {
+          "code": "MERCHANT_BLOCKED",
+          "constraint": "merchant_restrictions.allowlist",
+          "expected": "In allowlist",
+          "actual": "y_2",
+          "severity": "SOFT"
+        }
+      ]
+    },
+    {
+      "id": "EV-098",
+      "description": "Combinatorial Ask 3",
+      "expected": "ASK",
+      "actual": "ASK",
+      "category": "COMBINATORIAL",
+      "passed": true,
+      "violations": [
+        {
+          "code": "MERCHANT_BLOCKED",
+          "constraint": "merchant_restrictions.allowlist",
+          "expected": "In allowlist",
+          "actual": "y_3",
+          "severity": "SOFT"
+        }
+      ]
+    },
+    {
+      "id": "EV-099",
+      "description": "Combinatorial Ask 4",
+      "expected": "ASK",
+      "actual": "ASK",
+      "category": "COMBINATORIAL",
+      "passed": true,
+      "violations": [
+        {
+          "code": "MERCHANT_BLOCKED",
+          "constraint": "merchant_restrictions.allowlist",
+          "expected": "In allowlist",
+          "actual": "y_4",
+          "severity": "SOFT"
+        }
+      ]
+    },
+    {
+      "id": "EV-100",
+      "description": "Combinatorial Ask 5",
+      "expected": "ASK",
+      "actual": "ASK",
+      "category": "COMBINATORIAL",
+      "passed": true,
+      "violations": [
+        {
+          "code": "MERCHANT_BLOCKED",
+          "constraint": "merchant_restrictions.allowlist",
+          "expected": "In allowlist",
+          "actual": "y_5",
+          "severity": "SOFT"
+        }
+      ]
+    },
+    {
+      "id": "EV-101",
+      "description": "Combinatorial Ask 6",
+      "expected": "ASK",
+      "actual": "ASK",
+      "category": "COMBINATORIAL",
+      "passed": true,
+      "violations": [
+        {
+          "code": "MERCHANT_BLOCKED",
+          "constraint": "merchant_restrictions.allowlist",
+          "expected": "In allowlist",
+          "actual": "y_6",
+          "severity": "SOFT"
+        }
+      ]
+    },
+    {
+      "id": "EV-102",
+      "description": "Combinatorial Ask 7",
+      "expected": "ASK",
+      "actual": "ASK",
+      "category": "COMBINATORIAL",
+      "passed": true,
+      "violations": [
+        {
+          "code": "MERCHANT_BLOCKED",
+          "constraint": "merchant_restrictions.allowlist",
+          "expected": "In allowlist",
+          "actual": "y_7",
+          "severity": "SOFT"
+        }
+      ]
+    },
+    {
+      "id": "EV-103",
+      "description": "Combinatorial Ask 8",
+      "expected": "ASK",
+      "actual": "ASK",
+      "category": "COMBINATORIAL",
+      "passed": true,
+      "violations": [
+        {
+          "code": "MERCHANT_BLOCKED",
+          "constraint": "merchant_restrictions.allowlist",
+          "expected": "In allowlist",
+          "actual": "y_8",
+          "severity": "SOFT"
+        }
+      ]
+    },
+    {
+      "id": "EV-104",
+      "description": "Combinatorial Ask 9",
+      "expected": "ASK",
+      "actual": "ASK",
+      "category": "COMBINATORIAL",
+      "passed": true,
+      "violations": [
+        {
+          "code": "MERCHANT_BLOCKED",
+          "constraint": "merchant_restrictions.allowlist",
+          "expected": "In allowlist",
+          "actual": "y_9",
+          "severity": "SOFT"
+        }
+      ]
+    },
+    {
+      "id": "EV-AI-001",
+      "description": "AI intent below budget",
+      "expected": "APPROVE",
+      "actual": "APPROVE",
+      "category": "AI_INTENT",
+      "passed": true,
+      "violations": []
+    },
+    {
+      "id": "EV-AI-002",
+      "description": "AI intent above budget",
+      "expected": "BLOCK",
+      "actual": "BLOCK",
+      "category": "AI_INTENT",
+      "passed": true,
+      "violations": [
+        {
+          "code": "MAX_AMOUNT_EXCEEDED",
+          "constraint": "max_total_amount",
+          "expected": "80000.0",
+          "actual": "85000.0",
+          "severity": "HARD"
+        }
+      ]
+    }
+  ]
+}

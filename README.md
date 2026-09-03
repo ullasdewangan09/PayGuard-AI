@@ -1,5 +1,5 @@
 <div align="center">
-  <!-- Replace with your actual logo if you have one -->
+  <img width="2360" height="1640" alt="Untitled - 31 August 2026 18 41 09" src="https://github.com/user-attachments/assets/704c1534-94ea-48fa-910b-74c521f6c8a0" />
   <!-- <img src="docs/assets/logo.png" alt="PayGuard AI Logo" width="150"/> -->
   
   <h1 align="center">PayGuard AI</h1>
@@ -36,16 +36,14 @@ If the AI tries to buy an unauthorized item, exceed a budget, or sneak in a recu
 
 ## 📸 Sneak Peek
 
-*(Note: Replace these placeholder images by dropping screenshots into the `docs/assets/` folder)*
-
 ### Main Dashboard & Analytics
 <img width="1912" height="1076" alt="image" src="https://github.com/user-attachments/assets/4a9e29d7-85a4-4255-b211-6cc4311e1e88" />
 
 ### Attack Lab Simulator
-<img src="docs/assets/attack-lab.png" alt="Attack Lab" width="100%" />
+<img width="1856" height="975" alt="image" src="https://github.com/user-attachments/assets/74fbc2b9-43c9-4526-8cf0-015c870084e2" />
 
 ### AI Intent Builder
-<img src="docs/assets/intent-builder.png" alt="AI Intent Builder" width="100%" />
+<img width="1857" height="980" alt="image" src="https://github.com/user-attachments/assets/6f79bfc5-e7db-4f21-83ac-74d22e222848" />
 
 ---
 
@@ -154,13 +152,7 @@ PayGuard AI is designed for sub-millisecond policy evaluation.
 
 ---
 
-## 📝 License
-
-Distributed under the MIT License. See `LICENSE` for more information.
-
----
-
 <div align="center">
-  <p>Built with ❤️ by Ullas Dewangan</p>
+  <p>Built by Ullas Dewangan</p>
   <a href="https://github.com/ullasdewangan09">GitHub Profile</a>
 </div>
